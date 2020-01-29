@@ -19,6 +19,4 @@ app.use(express.json())
 app.use('/api/orders',ordersRoutes) */
 app.use('/api/',userRoutes)
 
-
-//listening to port or server
 app.listen(8080, () => console.log("Server started"))

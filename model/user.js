@@ -18,9 +18,10 @@ module.exports = {
       })
   },
   
-  async authorize(userID){
+  async authorize(body){
       return await userDb.findone({
-          _id:userID
+           email: body.email,
+           password : body.password
       })
   }
 
