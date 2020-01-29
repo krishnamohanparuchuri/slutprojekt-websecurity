@@ -1,3 +1,5 @@
+{"email":"asdf","password":"$2a$10$3BgR1dQv1olFgHIyfAOZdeWTQXkExttSBMZU74anXboJEDKsIFzqq","name":"aasdf","role":"customer","adress":{"street":"asdf","zip":"asdf","city":"1111"},"_id":"2ZFMRhZlOW2XundD"}
 {"email":"paruchuri","password":"123456","name":"krishna","adress":{"street":"krishna123","zip":"522201","city":"19554"},"_id":"7i9hQ850FDMIoqRX"}
 {"content":"","_id":"HxF9C9wmxqOlY4uB"}
 {"email":"kris@gmail.com","password":"12345","name":"kris","adress":{},"_id":"Sl0NkboCXG1JLKqw"}
+{"email":"paruchuri1@gmail.com","password":"$2a$10$qY/mwXLtmWixFeuVG5xEXee5nq2.E.N//kC25cd7U7AOQb2IC8JpW","name":"krishna1","role":"customer","adress":{"street":"krishna","zip":"52201","city":"stck"},"_id":"rwFXRPH6y62qodRj"}

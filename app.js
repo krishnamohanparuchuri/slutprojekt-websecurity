@@ -2,13 +2,13 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const dotenv = require('dotenv')
+require('dotenv').config()
 
 
 //routes which should handle request
 const productsRoutes = require('./routes/products')
 const ordersRoutes = require('./routes/orders')
-const userRoutes = require('./usersAuth/users')
+const userRoutes = require('./routes/users')
 
 
 //middleware functions
