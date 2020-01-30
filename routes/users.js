@@ -1,6 +1,7 @@
 const express= require('express')
 const router = express.Router()
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 
 
@@ -10,10 +11,18 @@ const User = require('../model/user')
 
 
 router.post('/auth',async (req,res)=>{
-    //console.log(req.body)
-
     const user = await User.authorize(req.body)
-   console.log(user)
+    const token = jwt.sign({_id:user._id}, process.env.SECRET)
+    res.header('auth-token',token).send(token)
+   if(user){
+    res.status(200).json({
+        message :"User loggen in"
+    })
+   }else{
+    res.status(400).json({
+        message :"Email or password didnt match"
+    })
+   }
 })
 
 router.post('/register',async (req,res)=>{

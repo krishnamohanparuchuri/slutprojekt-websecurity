@@ -1,5 +1,6 @@
 const dataStore= require('nedb-promise')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const userDb = new dataStore({filename:'./dataBase/userList.db', autoload: true})
 
 module.exports = {
@@ -32,17 +33,31 @@ module.exports = {
   },
   
   async authorize(body){
-      return await userDb.findOne({
-           email: body.email,
-           password : body.password,
-
-           name : body.name,
-           adress: {
-            street: body.adress.street,
-            zip:body.adress.zip,
-            city: body.adress.city
+      const user = await userDb.findOne({email:body.email})
+      if(!user){
+          return false
+      }else {
+          const validPass = await bcrypt.compare(body.password,user.password)
+          
+          if(validPass){
+              
+             return {user:{
+                        email: user.email,
+                        name: user.name,
+                        role: user.role,
+                        adress: {
+                            street:user.adress.street,
+                            city: user.adress.city,
+                            zip:user.adress.zip
+                        }
+                    }
+                    }
+                }
+            else{
+                return false
+            }
         }
-      })
-  }
+          
+    }
 
 }
