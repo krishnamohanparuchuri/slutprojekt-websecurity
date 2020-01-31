@@ -1,6 +1,11 @@
+{"user":[{"email":"nithvik@yahoo.com","password":"$2a$10$yn88rBVf/PhdiJrF.TmoUuc4AG3QoG04CWMqLFkNreC/aab12/cba","name":"nithvik","role":"customer","adress":{"street":"thes","zip":"852","city":"luck"}}],"_id":"0TZn43bZvisq41Ck"}
 {"email":"asdf","password":"$2a$10$3BgR1dQv1olFgHIyfAOZdeWTQXkExttSBMZU74anXboJEDKsIFzqq","name":"aasdf","role":"customer","adress":{"street":"asdf","zip":"asdf","city":"1111"},"_id":"2ZFMRhZlOW2XundD"}
 {"email":"paruchuri","password":"123456","name":"krishna","adress":{"street":"krishna123","zip":"522201","city":"19554"},"_id":"7i9hQ850FDMIoqRX"}
+{"user":{"email":"santhi123@gmail.com","password":"$2a$10$w4EAZUxUjlmjBw1277w0c.cjvYUs4fsFik4KYteF/rFhEA9Inob8m","name":"santhi123","role":"customer","adress":{"street":"santhi123","zip":"522201","city":"stock"}},"_id":"DfH7rLKLM3DMYDi7"}
 {"content":"","_id":"HxF9C9wmxqOlY4uB"}
+{"user":{"email":"mahesh@yahoo.com","password":"$2a$10$hpLeVFd7wr/oDp5s2u64Nu7yWkxNbww0Z0X8UMoJLPhLL/jepaFD6","name":"mahesh","role":"customer","adress":{"street":"sleipner","zip":"522201","city":"stockholm"}},"_id":"LBmy1LW3eETc1cg7"}
 {"email":"kris@gmail.com","password":"12345","name":"kris","adress":{},"_id":"Sl0NkboCXG1JLKqw"}
+{"user":{"email":"poiu@hotmail.com","password":"$2a$10$JjFkSlz0h.7yEJpEKvK4ce/U1Raja6hebGFU7Qk2HNeNlVT6YuKFO","name":"poiu","role":"customer","adress":{"street":"poiu","zip":"852","city":"poiu"}},"_id":"bPZLa8RPWzX8G7Jw"}
+{"user":{"email":"dhruvika@gmail.com","password":"$2a$10$bQuNvV6vic1WA3mGT7KVOubqC8cWZvOcPaRr7lpP4DiCkvKk32CFm","name":"dhruvika","role":"customer","adress":{"street":"sleipnergatan","zip":"522201","city":"stock"}},"_id":"cGI0m2vnY6gQH9VF"}
 {"email":"santhi@gmail.com","password":"$2a$10$uHGWAqTJSa2x6hyGa0gos.4s.ec6qnBF0O8uvWAeNc5MdMotOpoVu","name":"santhi","role":"customer","adress":{"street":"santhi","zip":"5222","city":"stock"},"_id":"ls63VeBAMHWKM6WP"}
 {"email":"paruchuri1@gmail.com","password":"$2a$10$qY/mwXLtmWixFeuVG5xEXee5nq2.E.N//kC25cd7U7AOQb2IC8JpW","name":"krishna1","role":"customer","adress":{"street":"krishna","zip":"52201","city":"stck"},"_id":"rwFXRPH6y62qodRj"}

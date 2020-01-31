@@ -15,8 +15,8 @@ const userRoutes = require('./routes/users')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.json())
-/* app.use('/api/products',productsRoutes)
-app.use('/api/orders',ordersRoutes) */
+app.use('/api/products',productsRoutes)
+app.use('/api/orders',ordersRoutes)
 app.use('/api/',userRoutes)
 
 app.listen(8080, () => console.log("Server started"))
