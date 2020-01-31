@@ -13,7 +13,7 @@ module.exports = {
             price: body.price,
             shortDesc: body.shortDesc,
             longDesc: body.longDesc,
-            imgFile: body.imgFile
+            imgFile: 'skateboard-greta.png'
   
         })
     },
@@ -21,8 +21,8 @@ module.exports = {
     // Find the product with the corresponding ID
     // with get /api/products/:id
     // Return the resource
-    async get(productID){
-        return await productDb.findOne({_id:productID})
+    async get(productId){
+        return await productDb.findOne({_id:productId})
     },
 
     // Find all products get /api/products
@@ -34,16 +34,16 @@ module.exports = {
     // Try to remove the product with corresponding ID
     // with delete /api/products/:id
     // Returns if any documents were removed
-    async remove(productID){
-        const numDeleted = await productDb.remove({_id:productID})
+    async remove(productId){
+        const numDeleted = await productDb.remove({_id:productId})
         return numDeleted > 0
     },
 
     // Try to update the document with corresponding ID
     // Returns if any documents were updated
-    async update(productID, body){        
+    async update(productId, body){        
         const numUpdated = await productDb.update(
-            {_id:productID},
+            {_id:productId},
             {$set:{
                     content: body.content || product.content
             }}
