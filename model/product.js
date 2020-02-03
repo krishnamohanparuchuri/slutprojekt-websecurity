@@ -1,5 +1,6 @@
 const dataStore= require('nedb-promise')
 const productDb = new dataStore({filename:'./dataBase/productList.db', autoload: true})
+const userDb = new dataStore({filename:'./dataBase/userList.db', autoload: true})
 
 module.exports = {
 
@@ -7,15 +8,17 @@ module.exports = {
     // with post /api/products to admin
     // Return the created resource
     async create(body){
+   
         return await productDb.insert({
              serial : body.serial,
             title: body.title,
             price: body.price,
             shortDesc: body.shortDesc,
             longDesc: body.longDesc,
-            imgFile: 'skateboard-greta.png'
+            imgFile: body.imgFile
   
-        })
+            })
+        
     },
 
     // Find the product with the corresponding ID
@@ -35,19 +38,21 @@ module.exports = {
     // with delete /api/products/:id
     // Returns if any documents were removed
     async remove(productId){
-        const numDeleted = await productDb.remove({_id:productId})
-        return numDeleted > 0
+        const productDeleted = await productDb.remove({_id:productId})
+        return productDeleted > 0
     },
 
     // Try to update the document with corresponding ID
     // Returns if any documents were updated
-    async update(productId, body){        
-        const numUpdated = await productDb.update(
-            {_id:productId},
-            {$set:{
-                    content: body.content || product.content
-            }}
-        )
-        return numUpdated > 0
+    async update(productId, body){
+
+       
+        
+         let productUpdated = await productDb.findOne({_id:productId})
+        productUpdated = await productDb.update(
+            productUpdated,
+            {$set:{body}}
+        ) 
+        return productUpdated > 0
     }
 }

@@ -32,7 +32,14 @@ router.get('/:productId',async(req,res)=>{
 })
 
 router.patch('/:productId',async(req,res)=>{
-    res.send('Product has been changed')
+    const product = await Product.update(req.params.productId,req.body) 
+    if(product){
+        res.status(200).json(product)
+    }else{
+     res.status(404).json({
+         message: 'Product is not Updated'
+     })
+    }
 })
 
 router.delete('/:productId',async(req,res)=>{
