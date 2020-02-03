@@ -44,7 +44,9 @@ module.exports = {
         const passwordMatch = await bcrypt.compare(body.password, user.password)
         if(passwordMatch){
             const payload = {
-                email:user.email
+                email:user.email,
+                role:user.role,
+                  _id:user._id
             }
             const token = jwt.sign(payload, process.env.SECRET,{expiresIn:'1 hr'})
 

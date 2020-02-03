@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Product= require('../model/product')
+const auth = require('./verifytoken')
 
 
 router.get('/',async(req,res)=>{
@@ -9,14 +10,14 @@ router.get('/',async(req,res)=>{
     res.json(products)
 })
 
-router.post('/',async(req,res)=>{
+router.post('/',auth.auth,async(req,res)=>{
+    if(req.user.role ==="admin"){
     const product = await Product.create(req.body)
-    if(product){
         res.status(201).json(product)
-        console.log(product)
     }else{
-    res.status(404).json({message: 'Error message Product is not created'})
+    res.status(404).json({message: 'Not allowed to created'})
     }
+   
 })
 
 router.get('/:productId',async(req,res)=>{
@@ -31,25 +32,26 @@ router.get('/:productId',async(req,res)=>{
     
 })
 
-router.patch('/:productId',async(req,res)=>{
+router.patch('/:productId', auth.auth ,async(req,res)=>{
+    if(req.user.role ==="admin"){
     const product = await Product.update(req.params.productId,req.body) 
-    if(product){
         res.status(200).json(product)
     }else{
      res.status(404).json({
          message: 'Product is not Updated'
      })
     }
+   
 })
 
-router.delete('/:productId',async(req,res)=>{
+router.delete('/:productId', auth.auth,async(req,res)=>{
+    if(req.user.role ==="admin"){
     const product = await Product.remove(req.params.productId)
-    if(product){
         res.status(200).json({ message:"Product is deleted"})
     }else{
-        res.status(404).json({message:'Product not found with Specific _id'})
-
+        res.status(404).json({message:'you are not able to delete'})
     }
+   
 })
 
 module.exports = router

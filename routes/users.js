@@ -11,7 +11,7 @@ const  verifyToken = require('./verifytoken')
 
 
 
-router.post('/auth',verifyToken ,async (req,res)=>{
+router.post('/auth',async (req,res)=>{
     const user = await User.authorize(req.body)
             if(user){
 
