@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const userDb = new dataStore({filename:'./dataBase/userList.db', autoload: true})
+const Order = require('../model/order')
 
 module.exports = {
   async create(body){
@@ -46,7 +47,7 @@ module.exports = {
             const payload = {
                 email:user.email,
                 role:user.role,
-                  _id:user._id
+                  userId:user._id
             }
             const token = jwt.sign(payload, process.env.SECRET,{expiresIn:'1 hr'})
 
@@ -60,15 +61,25 @@ module.exports = {
                                 street:user.adress.street,
                                city: user.adress.city,
                                zip:user.adress.zip
-                                }
+                                },
+                    orderHistory: user.orderHistory
                    }
                 }
                return userAuthorize
-    
+        
         }else{
             return false
         }
        }   
-    }
+    },
 
+    async userPayment(userId,payment){
+
+        await userDb.update({_id:userId},{$set:{payment:payment}})
+
+    },
+    
+    async  addOrderInfo(userId,_id){
+        await userDb.update({_id:userId},{$push:{orderHistory:_id}})
+    }
 }

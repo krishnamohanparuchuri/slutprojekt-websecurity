@@ -16,7 +16,6 @@ router.post('/auth',async (req,res)=>{
             if(user){
 
             res.status(200).json(user)
-            console.log(user)
         
         }
         else{
@@ -33,6 +32,7 @@ router.post('/register',async (req,res)=>{
         res.status(200).json({
             message :"User is Registered"
         })
+    
     }else{
         res.status(400).json({
             message :"User all ready exists"
